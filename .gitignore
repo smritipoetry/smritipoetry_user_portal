@@ -1,0 +1,72 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+
+
+
+
+
+// const handleGoogleLogin = async () => {
+  //   try {
+  //     // Open the Google login window
+  //     const popup = window.open(
+  //       `${base_api_url}/auth/google`,
+  //       "_blank",
+  //       "width=500,height=600"
+  //     );
+
+  //     const interval = setInterval(() => {
+  //       if (popup.closed) {
+  //         clearInterval(interval);
+  //         // Fetch the token from localStorage or backend after popup closes
+  //         const token = localStorage.getItem("authToken");
+  //         if (token) {
+  //           router.push("/"); // Redirect to the home page
+  //         } else {
+  //           console.error("Google login failed or was canceled.");
+  //         }
+  //       }
+  //     }, 500);
+  //   } catch (error) {
+  //     console.error("Error during Google login: ", error);
+  //   }
+  // };
