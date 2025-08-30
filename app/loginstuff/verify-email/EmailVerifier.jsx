@@ -16,7 +16,7 @@ export default function EmailVerifier() {
 
       try {
         const res = await fetch(
-          `https://smriti-s-echo-admin.onrender.com/api/verify-email?token=${token}`
+          `https://smriti-jha-poetry-backend.onrender.com/api/verify-email?token=${token}`
         );
         const data = await res.json();
 
