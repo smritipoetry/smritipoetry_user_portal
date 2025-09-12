@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import BuyMeACoffee from "@/components/BuyMeACoffee";
 import {
   FaInstagram,
   FaTwitter,
@@ -128,6 +129,9 @@ const AboutPage = () => {
               <FaTwitter />
             </a>
           </div>
+
+          {/* Buy Me a Coffee Button */}
+          <BuyMeACoffee />
         </div>
         <Image
           src="/smritibranch.webp"

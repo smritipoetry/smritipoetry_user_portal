@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { AiFillYoutube } from "react-icons/ai";
 import { base_api_url } from "../config/Config";
+import BuyMeACoffee from "./BuyMeACoffee";
 
 const Footer = () => {
   const [status, setStatus] = useState("");
@@ -163,6 +164,7 @@ const Footer = () => {
                 <FaTwitter size={22} />
               </a>
             </div>
+            <BuyMeACoffee />
           </div>
 
           {/* About Smriti */}
