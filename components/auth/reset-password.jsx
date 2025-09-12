@@ -1,25 +1,37 @@
 "use client";
 export const dynamic = "force-dynamic";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { base_api_url } from "@/config/Config";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // import eye icons
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [showNewPassword, setShowNewPassword] = useState(false); // toggle state
+  const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [token, setToken] = useState(null);
 
   const searchParams = useSearchParams();
   const router = useRouter();
-  const token = searchParams.get("token");
+
+  // ✅ Only get token on client
+  useEffect(() => {
+    if (searchParams) {
+      setToken(searchParams.get("token"));
+    }
+  }, [searchParams]);
 
   const handleReset = async (e) => {
     e.preventDefault();
+
+    if (!token) {
+      setMessage("Invalid or missing token.");
+      return;
+    }
 
     if (newPassword.length < 8) {
       setMessage("Password must be at least 8 characters long");
@@ -27,6 +39,11 @@ const ResetPassword = () => {
     }
     if (newPassword !== confirmPassword) {
       setMessage("Passwords do not match");
+      return;
+    }
+
+    if (!base_api_url) {
+      setMessage("Server configuration error: API URL is missing.");
       return;
     }
 
