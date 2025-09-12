@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { AiFillYoutube } from "react-icons/ai";
 import { base_api_url } from "../config/Config";
-import BuyMeACoffee from "./BuyMeACoffee";
+import BuyMeACoffee from "./buymeacoffee";
 
 const Footer = () => {
   const [status, setStatus] = useState("");

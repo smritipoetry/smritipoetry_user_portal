@@ -9,7 +9,7 @@ import RatingSection from "@/components/news/Rating";
 import CommentSection from "@/components/news/Comment";
 import AudioSection from "@/components/audioSection";
 import { toast } from "react-hot-toast";
-import BuyMeACoffee from "@/components/buymeacoffee";
+import BuyMeACoffee from "../../../components/buymeacoffee";
 
 import LikeButton from "@/components/news/LikeButton";
 

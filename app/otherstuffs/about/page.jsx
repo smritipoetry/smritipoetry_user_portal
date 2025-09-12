@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import BuyMeACoffee from "@/components/BuyMeACoffee";
+import BuyMeACoffee from "../../../components/buymeacoffee";
 import {
   FaInstagram,
   FaTwitter,
