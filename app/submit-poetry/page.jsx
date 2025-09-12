@@ -173,12 +173,12 @@ export default function SubmitPoetryPage() {
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
             />
 
-            {/* Audio File Upload */}
+            {/* Audio File Upload
             <input
               type="file"
               onChange={handleFileChange}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-            />
+            /> */}
 
             {/* Acknowledgment Checkbox */}
             <label className="text-sm text-gray-600 flex items-start space-x-2 mb-6">
