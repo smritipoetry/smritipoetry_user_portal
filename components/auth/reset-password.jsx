@@ -1,12 +1,13 @@
 "use client";
+
 export const dynamic = "force-dynamic";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { base_api_url } from "@/config/Config";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const ResetPassword = () => {
+function ResetPasswordContent() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -18,7 +19,7 @@ const ResetPassword = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  // ✅ Only get token on client
+  // ✅ Safely extract token after hydration
   useEffect(() => {
     if (searchParams) {
       setToken(searchParams.get("token"));
@@ -32,7 +33,6 @@ const ResetPassword = () => {
       setMessage("Invalid or missing token.");
       return;
     }
-
     if (newPassword.length < 8) {
       setMessage("Password must be at least 8 characters long");
       return;
@@ -41,7 +41,6 @@ const ResetPassword = () => {
       setMessage("Passwords do not match");
       return;
     }
-
     if (!base_api_url) {
       setMessage("Server configuration error: API URL is missing.");
       return;
@@ -138,6 +137,12 @@ const ResetPassword = () => {
       </div>
     </div>
   );
-};
+}
 
-export default ResetPassword;
+export default function ResetPassword() {
+  return (
+    <Suspense fallback={<div className="text-center mt-20">Loading...</div>}>
+      <ResetPasswordContent />
+    </Suspense>
+  );
+}
