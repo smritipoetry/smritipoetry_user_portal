@@ -2,9 +2,12 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import { FaTrash } from "react-icons/fa";
+import { base_api_url } from "@/config/Config";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/dashboardsidebar";
+import axios from "axios";
+import { useAuth } from "../../../../context/authContext";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -21,6 +24,42 @@ const Dashboard = () => {
 
   const handleNavigate = (path) => {
     router.push(path);
+  };
+
+  const { logout } = useAuth(); // get logout from context
+
+  const handleDeleteAccount = async () => {
+    if (
+      window.confirm(
+        "⚠️ Are you sure you want to permanently delete your account? This action cannot be undone!"
+      )
+    ) {
+      try {
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+          alert("No token found. Please log in again.");
+          return;
+        }
+
+        await axios.delete(`${base_api_url}/api/delete-account`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        alert("✅ Your account has been permanently deleted.");
+
+        // 🔹 Clear state + localStorage at once
+        logout();
+
+        // 🔹 Redirect
+        router.push("/");
+      } catch (error) {
+        console.error(
+          "❌ Delete Account Error:",
+          error.response?.data || error
+        );
+        alert("Failed to delete account. Please try again later.");
+      }
+    }
   };
 
   return (
@@ -54,6 +93,14 @@ const Dashboard = () => {
               <p className="text-center text-base sm:text-lg">
                 <strong>Email:</strong> {user?.email}
               </p>
+              {/* 🔹 Delete Account Button */}
+              <button
+                onClick={handleDeleteAccount}
+                className="flex items-center space-x-3 text-red-600 hover:text-red-800 font-medium mt-10"
+              >
+                <FaTrash className="text-xl" />
+                <span>Delete Account</span>
+              </button>
             </div>
           </div>
         </main>
