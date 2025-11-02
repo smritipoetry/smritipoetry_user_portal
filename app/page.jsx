@@ -102,15 +102,24 @@ export default function Home() {
               About Me
             </h2>
 
-           <p className="text-gray-700 dark:text-gray-300 mb-6 text-base leading-relaxed text-left">
-  I'm Smriti Jha — a poet at heart, a software engineer by profession, and a web developer by passion. Through poetry, I explore emotions, love, loss, and everything in between, giving voice to feelings often left unspoken.
-</p>
-<p className="text-gray-700 dark:text-gray-300 mb-6 text-base leading-relaxed text-left">
-  In my work as a web developer, I craft meaningful, intuitive digital experiences, believing that every line of code has the power to tell a story. For me, both poetry and development are about connection — between people, ideas, and technology.
-</p>
-<p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed text-left">
-  My journey has taught me to embrace contrasts: the precision of code and the fluidity of verse, structure and spontaneity. These seemingly different paths stem from the same creative energy that drives me to explore, express, and create.
-</p>
+            <p className="text-gray-700 dark:text-gray-300 mb-6 text-base leading-relaxed text-left">
+              I'm Smriti Jha — a poet at heart, a software engineer by
+              profession, and a web developer by passion. Through poetry, I
+              explore emotions, love, loss, and everything in between, giving
+              voice to feelings often left unspoken.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 mb-6 text-base leading-relaxed text-left">
+              In my work as a web developer, I craft meaningful, intuitive
+              digital experiences, believing that every line of code has the
+              power to tell a story. For me, both poetry and development are
+              about connection — between people, ideas, and technology.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed text-left">
+              My journey has taught me to embrace contrasts: the precision of
+              code and the fluidity of verse, structure and spontaneity. These
+              seemingly different paths stem from the same creative energy that
+              drives me to explore, express, and create.
+            </p>
 
             <Link href="/otherstuffs/about" passHref>
               <button className="mt-6 text-white bg-[#C1440E] hover:bg-[#a6370d] focus:outline-none focus:ring-2 focus:ring-amber-500 rounded-full py-3 px-6 transition duration-300">
@@ -150,25 +159,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Poem */}
+      {/* Featured Publication */}
       <section className="bg-[#dfecde] dark:bg-gray-900 py-10 px-4 sm:px-6">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-semibold text-black dark:text-amber-200 mb-4 font-serif">
-            Featured Poetry
+            Featured Publication
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto text-base sm:text-lg">
-            Discover a handpicked poem that speaks to the heart.
+          <p className="text-gray-600 dark:text-gray-300 mb-8 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+            My words found a place in the international anthology
+            <span className="font-semibold text-black dark:text-amber-300">
+              {" "}
+              “She Raises, India Shines”
+            </span>{" "}
+            - a collection that celebrates the strength and voice of women
+            writers across the world.
+            <br />
           </p>
-          <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-xl rounded-2xl p-6 sm:p-8 transition-transform duration-300 hover:scale-[1.01]">
-            <div className="flex items-start gap-3 mb-4">
-              <div className="text-left w-full">
-                <FeaturedPoems />
-              </div>
+
+          <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-xl rounded-2xl p-6 sm:p-8 transition-transform duration-300 hover:scale-[1.01] flex flex-col sm:flex-row items-center gap-6">
+            {/* Book Cover */}
+            <div className="w-full sm:w-1/3">
+              <img
+                src="/bookcoverimg.jpg"
+                alt="She Raises, India Shines Vol 1 – Cover"
+                className="rounded-xl shadow-md w-full h-auto"
+              />
             </div>
-            <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4 text-sm text-gray-500 dark:text-gray-400 flex justify-between">
-              <span>By Smriti Jha</span>
-              <span>{new Date().toLocaleDateString()}</span>
+
+            {/* Content */}
+            <div className="text-left sm:w-2/3">
+              <h3 className="text-3xl font-bold text-black dark:text-amber-200 mb-3 font-sans text-center">
+                She Raises, India Shines
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-4">
+                This anthology features my poem, accompanied by my photo and
+                bio, celebrating voices of emerging women writers from across
+                the world.
+              </p>
+              <p className="mb-2">
+                <strong>Available on:</strong> Amazon, Kindle, Flipkart, Google
+                Play Books, Apple Books, Kobo, Scribd, OverDrive
+              </p>
+              <a
+                href="https://play.google.com/store/books/details/Authors_Of_India_She_Raises_India_Shines_Vol_1?id=ohJsEQAAQBAJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-green-600 text-white px-5 py-2 rounded-full shadow hover:bg-green-700 transition-colors"
+              >
+                Read for Free on Google Play
+              </a>
             </div>
+          </div>
+
+          <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-6 text-sm text-gray-500 dark:text-gray-400 flex justify-between">
+            <span>By Smriti Jha</span>
+            <span>{new Date().toLocaleDateString()}</span>
           </div>
         </div>
       </section>

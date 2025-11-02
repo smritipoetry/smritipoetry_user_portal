@@ -93,6 +93,9 @@ const Header = () => {
           >
             Dictionary
           </button>
+          {/* <Link href="/blog/allblog" className="hover:underline text-sm">
+            Blog
+          </Link> */}
           <div className="relative">
             <button
               onClick={toggleCategoryDropdown}
